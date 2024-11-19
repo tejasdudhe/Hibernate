@@ -1,0 +1,26 @@
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.hibernate.cfg.Configuration;
+
+public class TestMain {
+
+	public static void main(String[] args) {
+
+		Configuration con = new Configuration();
+		SessionFactory sf = con.configure().buildSessionFactory();
+		Session s = sf.openSession();
+		Transaction t = s.beginTransaction();
+		
+		
+		EmployeeDetails eDetail = new EmployeeDetails(101,"10th Street","LA","San Fransisco","USA");
+		Employee emp = new Employee(101,"Joey","Tribinyani","20-02-200","114-852-953");
+		
+		emp.setEmployeedetails(eDetail);
+		eDetail.setEmployee(emp);
+		
+		
+		s.save(emp);
+	}
+
+}

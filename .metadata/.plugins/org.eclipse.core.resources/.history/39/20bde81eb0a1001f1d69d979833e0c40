@@ -1,0 +1,59 @@
+package com.controller;
+
+import java.util.Scanner;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+
+import com.util.HibbernateUtil;
+
+public class MainApp {
+
+	public static void main(String[] args) {
+
+		Scanner sc = new Scanner(System.in);
+		int op;
+		
+		SessionFactory sf = HibbernateUtil.obtainSessionFactory();
+		Session s = sf.getCurrentSession();
+		Transaction ts = s.beginTransaction();
+		
+		
+
+		do {
+
+			System.out.println("\n ********* MENU DRIVEN *********");
+			System.out.println(" Enter 1 to Search BY City ?");
+			System.out.println(" Enter 2 to Search By Annual Salary Range ?");
+			System.out.println(" Enter 3 to Search by pattern for Last Name ?");
+			System.out.println(" Enter 4 to Exit .....");
+
+			System.out.print("\n\n Enter you Choice : ");
+			op = sc.nextInt();
+
+		} while (op != 4);
+		
+		
+		switch (op) {
+		case 1:
+			
+			break;
+		case 2:
+
+			break;
+		case 3:
+
+			break;
+		case 4:
+				System.out.println("\n ***** THANK YOU ********");
+			break;
+
+		default:
+			System.out.println("\n Invalid Choice..........please select again");
+			break;
+		}
+
+	}
+
+}

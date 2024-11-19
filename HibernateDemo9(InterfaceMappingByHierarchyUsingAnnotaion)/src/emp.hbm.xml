@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!--Table Per Heirarchy -->
+<hibernate-mapping>
+<class name="Employee" table="emp01" discriminator-value="e">
+<id name="eid" type="int" column="eid" length="3">
+<generator class="assigned"></generator>
+</id>
+<discriminator column="emptype" type="string" length="3"></discriminator>
+
+<property name="ename" column="ename" length="10"></property>
+<property name="esal" column="esal" length="7"></property>
+
+<subclass name="PerEmp" discriminator-value="p">
+<property name="desig" column="desig" length="10"></property>
+<property name="dname" column="dname" length="10"></property>
+</subclass>
+
+<subclass name="TempEmp" discriminator-value="t">
+<property name="workdays" column="wdays" length="3"></property>
+<property name="cname" column="cname" length="10"></property>
+</subclass>
+
+
+</class>
+</hibernate-mapping>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+<class name="Employee" table="emp102">
+<id name="eid" type="int" column="eno">
+ <generator class="assigned"></generator>
+</id> 
+<property name="ename" length="20" column="ename"></property>
+<property name="esal" length="7" column="esal"></property>
+
+<component name="addr" class="Address">
+<property name="hno" length="3" column="hno"></property>
+<property name="hname" length="15" column="hname"></property>
+<property name="street" length="15" column="street"></property>
+<property name="city" length="10" column="city"></property>
+</component>
+</class>
+
+</hibernate-mapping>    

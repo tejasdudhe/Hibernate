@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!--Table Per Concrete class -->
+<hibernate-mapping>
+<class name="Employee" table="emp02">
+<id name="eid" type="int" column="eid" length="3">
+<generator class="assigned" ></generator>
+</id>
+<property name="ename" column="ename" length="10"></property>
+<property name="esal" column="esal" length="7"></property>
+
+<union-subclass name="PerEmp" table="peremp94">
+<property name="desig" column="desig" length="10"></property>
+<property name="dname" column="dname" length="10"></property>
+</union-subclass>
+
+<union-subclass name="TempEmp" table="tempemp94">
+<property name="workdays" column="wdays" length="3"></property>
+<property name="cname" column="cname" length="10"></property>
+</union-subclass>
+
+</class>
+</hibernate-mapping>

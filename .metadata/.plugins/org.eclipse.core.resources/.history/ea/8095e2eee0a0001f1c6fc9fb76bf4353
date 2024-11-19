@@ -1,0 +1,9 @@
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "hib_empdetails")
+public class EmployeeDetails 
+{
+	
+}

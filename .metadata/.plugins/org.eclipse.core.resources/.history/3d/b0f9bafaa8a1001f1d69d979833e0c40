@@ -1,0 +1,12 @@
+package com.model;
+
+public class Book 
+{
+	int cid;
+	String fName;
+	String lName;
+	float anuSal;
+	String 
+	
+
+}

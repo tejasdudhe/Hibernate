@@ -1,0 +1,15 @@
+package com.util;
+
+import java.lang.module.Configuration;
+
+import org.hibernate.SessionFactory;
+
+public class DBConnection 
+{
+	public SessionFactory getSessionFactory()
+	  {
+		  Configuration c= new Configuration();
+		  SessionFactory sf=c.configure().buildSessionFactory();
+		  return sf;
+	  }
+}

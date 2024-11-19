@@ -1,0 +1,26 @@
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "hib_empdetails")
+public class EmployeeDetails 
+{
+	@Id
+	@Column(name = "eid")
+	private long employeeId;
+	@Column(name = "street",length = 15)
+	private String street;
+	@Column(name = "city",length = 15)
+	private String city;
+	@Column(name = "state")
+	private String state;
+	@Column(name = "country",length = 20)
+	private String country;
+	
+	@OneToOne(mappedBy = "employee",cascade = CascadeType.ALL)
+	private Employee employee;
+}

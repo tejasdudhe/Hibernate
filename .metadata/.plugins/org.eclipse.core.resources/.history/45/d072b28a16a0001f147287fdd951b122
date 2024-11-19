@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!--Table Per Concrete class -->
+<hibernate-mapping>
+<class name="Employee" table="emp95">
+<id name="eid" type="int" column="eid" length="3">
+<generator class="increment" ></generator>
+</id>
+<property name="ename" column="ename" length="10"></property>
+<property name="esal" column="esal" length="7"></property>
+
+<joined-subclass name="PerEmp" table="peremp95">
+<key column="eid"></key> <!--F-key  -->
+<property name="desig" column="desig" length="10"></property>
+<property name="dname" column="dname" length="10"></property>
+</joined-subclass>
+
+<joined-subclass name="TempEmp" table="tempemp95">
+<key column="eid"></key> <!--F-key  -->
+<property name="workdays" column="wdays" length="3"></property>
+<property name="cname" column="cname" length="10"></property>
+</joined-subclass>
+
+</class>
+</hibernate-mapping>

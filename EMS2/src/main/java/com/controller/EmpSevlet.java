@@ -1,0 +1,60 @@
+package com.controller;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import com.bean.Employee;
+import com.dao.EmpDao;
+
+@SuppressWarnings("serial")
+public class EmpSevlet extends HttpServlet 
+{
+    public EmpSevlet() 
+    {
+        super();
+    }
+    
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
+	{
+		int eid = Integer.parseInt(request.getParameter("eid"));
+		String ename = request.getParameter("ename");
+		int esal = Integer.parseInt(request.getParameter("esal"));
+		
+		RequestDispatcher rd1=request.getRequestDispatcher("./mastermenu");
+		RequestDispatcher rd2=request.getRequestDispatcher("./addemp");
+		
+		PrintWriter out= response.getWriter();
+		
+		Employee e= new Employee();
+		e.setEid(eid);
+		e.setEname(ename);
+		e.setEsal(esal);
+		
+		EmpDao edao=new EmpDao();
+		
+		int i= edao.addEmp(e);
+		
+		if(i>0)
+		{
+			out.print("<br> Record Added Successfully...!!!");
+			rd1.include(request, response);
+		}
+		else
+		{
+			out.print("<br> Record Denined...!!!");
+			rd2.include(request, response);
+		}
+		
+	}
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
+	{
+		doGet(request, response);
+	}
+
+}

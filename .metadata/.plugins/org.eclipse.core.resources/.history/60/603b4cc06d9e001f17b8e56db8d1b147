@@ -1,0 +1,46 @@
+package com.controller;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import com.bean.Employee;
+import com.dao.EmpDao;
+
+public class EmpSevlet extends HttpServlet 
+{
+    public EmpSevlet() 
+    {
+        super();
+    }
+    
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
+	{
+		int eid = Integer.parseInt(request.getParameter("eid"));
+		String ename = request.getParameter("ename");
+		int esal = Integer.parseInt(request.getParameter("esal"));
+		
+		RequestDispatcher rd1=request.getRequestDispatcher("./mastermenu");
+		RequestDispatcher rd2=request.getRequestDispatcher("./addemp");
+		
+		PrintWriter out= response.getWriter();
+		
+		Employee e= new Employee();
+		e.setEid(eid);
+		e.setEname(ename);
+		e.setEsal(esal);
+		
+		EmpDao edao=new EmpDao();
+		
+	}
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
+	{
+		doGet(request, response);
+	}
+
+}

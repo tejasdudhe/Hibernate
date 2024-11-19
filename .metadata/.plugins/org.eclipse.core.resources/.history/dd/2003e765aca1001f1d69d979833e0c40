@@ -1,0 +1,27 @@
+package com.controller;
+
+import java.util.Scanner;
+
+public class MainApp {
+
+	public static void main(String[] args) {
+		
+		Scanner sc = new Scanner(System.in);
+		int op;
+		
+		do {
+			
+			System.out.println("\n ********* MENU DRIVEN *********");
+			System.out.println(" Enter 1 to Search BY City ?");
+			System.out.println(" Enter 2 to Search By Annual Salary Range ?");
+			System.out.println(" Enter 3 to Search by pattern for Last Name ?");
+			System.out.println(" Enter 4 to Exit .....");
+			
+			
+			System.out.println("\n\n Enter you Choice : ");
+			op 
+		} while (op != 4);
+
+	}
+
+}
